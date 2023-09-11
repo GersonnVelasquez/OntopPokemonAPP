@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
+import { Store } from '@ngrx/store'
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { of } from 'rxjs'
 import { PokemonDataAccessActions } from './pokemon-data-access.actions'
 import { PokemonDataAccessService } from '../services/pokemon-data-access.service'
-import { Store } from '@ngrx/store'
 import { PokemonDataAccessSelectors } from './pokemon-data-access.selectors'
-import { Router } from '@angular/router'
 
 @Injectable()
 export class PokemonDataAccessEffects {

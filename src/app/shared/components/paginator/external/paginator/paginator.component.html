@@ -2,6 +2,7 @@
   <div class="pagination-container__items-per-page">
     <span>Items per page:</span>
     <select
+      class="pagination-container__items-per-page__select"
       [(ngModel)]="pageSize"
       [disabled]="!hasItems"
       (change)="onItemsPerPageChange()"
@@ -12,10 +13,22 @@
     </select>
   </div>
   <div class="pagination-container__pagination-options">
-    <button (click)="onPrevious()" [disabled]="isPreviousDisabled">
+    <button
+      class="pagination-container__pagination-options__previous-button"
+      (click)="onPrevious()"
+      [disabled]="isPreviousDisabled"
+    >
       Previous
     </button>
-    <span>Page {{ currentPage }} of {{ totalPages }}</span>
-    <button (click)="onNext()" [disabled]="isNextDisabled">Next</button>
+    <span class="pagination-container__pagination-options__page-info"
+      >Page {{ currentPage }} of {{ totalPages }}</span
+    >
+    <button
+      class="pagination-container__pagination-options__next-button"
+      (click)="onNext()"
+      [disabled]="isNextDisabled"
+    >
+      Next
+    </button>
   </div>
 </div>

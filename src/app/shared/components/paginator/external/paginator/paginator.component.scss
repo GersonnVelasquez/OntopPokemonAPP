@@ -28,7 +28,7 @@
   }
 
   &__items-per-page {
-    select {
+    &__select {
       padding: 10px;
       font-size: 1rem;
       color: #333;
@@ -45,7 +45,8 @@
   }
 
   &__pagination-options {
-    button {
+    &__previous-button,
+    &__next-button {
       padding: 10px 20px;
       font-size: 1rem;
       color: #333;
@@ -64,7 +65,7 @@
         background-color: #f0f0f0;
       }
 
-      span {
+      &__page-info {
         font-size: 1rem;
       }
     }

@@ -7,6 +7,7 @@ import {
   PokemonEvolutionChainApiResponse,
 } from '../models/pokemon-evolution-chain-api-response.interface'
 import { Pokemon } from '../models/pokemon.interface'
+
 @Injectable()
 export class PokemonDeserializedService {
   deserialize(pokemonData: PokemonData): Pokemon {
@@ -30,9 +31,7 @@ export class PokemonDeserializedService {
     return pokemon as Pokemon
   }
 
-  private mapDetailsToPokemon(
-    details: PokemonDetailsApiResponse,
-  ): Partial<Pokemon> {
+  mapDetailsToPokemon(details: PokemonDetailsApiResponse): Partial<Pokemon> {
     return {
       id: details.id,
       name: details.name,
@@ -47,9 +46,7 @@ export class PokemonDeserializedService {
     }
   }
 
-  private mapSpeciesToPokemon(
-    species: PokemonSpeciesApiResponse,
-  ): Partial<Pokemon> {
+  mapSpeciesToPokemon(species: PokemonSpeciesApiResponse): Partial<Pokemon> {
     const descriptionEntry = species.flavor_text_entries.find(
       (entry) => entry.language.name === 'en',
     )
@@ -60,7 +57,7 @@ export class PokemonDeserializedService {
     }
   }
 
-  private mapEvolutionChainToPokemon(
+  mapEvolutionChainToPokemon(
     evolutionChain: PokemonEvolutionChainApiResponse,
   ): Partial<Pokemon> {
     return {
@@ -68,9 +65,7 @@ export class PokemonDeserializedService {
     }
   }
 
-  private extractEvolutionNames(
-    chain: PokemonEvolutionChain | undefined,
-  ): string[] {
+  extractEvolutionNames(chain: PokemonEvolutionChain | undefined): string[] {
     const evolutionNames: string[] = []
     let currentStage = chain
 

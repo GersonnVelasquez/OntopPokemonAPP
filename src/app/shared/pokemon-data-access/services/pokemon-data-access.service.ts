@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
+import { Observable, forkJoin, map, switchMap } from 'rxjs'
 import { MyHttpService } from 'src/app/core/services/my-http.service'
 import { PokemonListQueryParams } from '../models/pokemon-list-query-params.interface'
-import { Observable, forkJoin, map, switchMap } from 'rxjs'
 import { PokemonListApiResponse } from '../models/pokemon-list-api-response.interface'
 import { PokemonDetailsApiResponse } from '../models/pokemon-details-api-response.interface'
 import { PokemonList } from '../models/pokemon-list.interface'
@@ -11,7 +11,7 @@ import { Pokemon } from '../models/pokemon.interface'
 import {
   PokemonData,
   PokemonDeserializedService,
-} from './pokemon-deserializer.service copy'
+} from './pokemon-deserializer.service'
 
 @Injectable()
 export class PokemonDataAccessService {
@@ -54,7 +54,7 @@ export class PokemonDataAccessService {
     )
   }
 
-  private getPokemonExtraDetails(
+  getPokemonExtraDetails(
     details: PokemonDetailsApiResponse,
   ): Observable<PokemonData> {
     return this.getPokemonSpecies(details.id).pipe(

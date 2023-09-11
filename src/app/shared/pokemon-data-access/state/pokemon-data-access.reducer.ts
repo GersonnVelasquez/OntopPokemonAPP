@@ -36,7 +36,9 @@ export const pokemonDataAccessReducer = createReducer(
   ),
   on(
     PokemonDataAccessActions.pokemonsRequestedFail,
+    PokemonDataAccessActions.pokemonDetailsRequestedFail,
     (): PokemonDataAccessState => ({
+      // TODO: this is not well for the UI, we should have an error behavior
       ...initialState,
     }),
   ),
@@ -79,12 +81,6 @@ export const pokemonDataAccessReducer = createReducer(
         ...state,
         loading: false,
       }),
-  ),
-  on(
-    PokemonDataAccessActions.pokemonsRequestedFail,
-    (): PokemonDataAccessState => ({
-      ...initialState,
-    }),
   ),
   on(
     PokemonDataAccessActions.pokemonSelected,
