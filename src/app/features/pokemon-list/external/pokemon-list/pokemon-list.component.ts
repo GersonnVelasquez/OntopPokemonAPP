@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store'
 import { PokemonDataAccessActions } from 'src/app/shared/pokemon-data-access/state/pokemon-data-access.actions'
 import { PokemonDataAccessSelectors } from 'src/app/shared/pokemon-data-access/state/pokemon-data-access.selectors'
 import { PaginationEvent } from 'src/app/shared/components/paginator/models/pagination-event.interface'
+import { Pokemon } from 'src/app/shared/pokemon-data-access/models/pokemon.interface'
 
 @Component({
   selector: 'app-pokemon-list',
@@ -24,6 +25,10 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(PokemonDataAccessActions.pokemonsRequested())
+  }
+
+  trackByFn(index: number, pokemon: Pokemon): number {
+    return pokemon.id
   }
 
   handlePagination(paginationParams: PaginationEvent): void {

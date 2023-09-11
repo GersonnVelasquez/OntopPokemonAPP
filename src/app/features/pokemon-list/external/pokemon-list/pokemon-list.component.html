@@ -19,7 +19,7 @@
   <div class="pokemon-list__cards-container">
     <app-pokemon-card
       (pokemonSelected)="handlePokemonSelected($event)"
-      *ngFor="let pokemon of pokemonList$ | async"
+      *ngFor="let pokemon of pokemonList$ | async; trackBy: trackByFn"
       [pokemon]="pokemon"
     ></app-pokemon-card>
   </div>
