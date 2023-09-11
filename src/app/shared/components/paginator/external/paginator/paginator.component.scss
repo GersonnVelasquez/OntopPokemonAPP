@@ -1,0 +1,72 @@
+@import 'src/styles/mixins/responsive';
+
+.pagination-container {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  justify-content: flex-end;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  flex-direction: column;
+
+  @include respondTo(tablet-portrait) {
+    flex-direction: row;
+  }
+
+  &__items-per-page,
+  &__pagination-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include respondTo(tablet-portrait) {
+      justify-content: initial;
+    }
+  }
+
+  &__items-per-page {
+    select {
+      padding: 10px;
+      font-size: 1rem;
+      color: #333;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 5px;
+      margin-right: 10px;
+
+      &:disabled {
+        background-color: #ddd;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__pagination-options {
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:disabled {
+        background-color: #ddd;
+        cursor: not-allowed;
+      }
+
+      &:not(:disabled):hover {
+        background-color: #f0f0f0;
+      }
+
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}

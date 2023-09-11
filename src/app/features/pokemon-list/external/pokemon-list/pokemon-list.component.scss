@@ -1,0 +1,48 @@
+@import 'src/styles/mixins/responsive';
+
+.pokemon-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0;
+
+  @include respondTo(tablet-portrait) {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+.pokemon-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__content-area {
+    flex: 1;
+  }
+
+  &__title {
+    text-align: left;
+    text-transform: capitalize;
+    padding-left: 10px;
+
+    @include respondTo(tablet-portrait) {
+      text-align: center;
+      padding-left: 0;
+    }
+  }
+
+  &__cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
+
+    @include respondTo(tablet-portrait) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 16px;
+    }
+  }
+}

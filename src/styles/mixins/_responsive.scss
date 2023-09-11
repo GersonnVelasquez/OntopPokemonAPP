@@ -1,0 +1,17 @@
+@import 'src/styles/variables/breakpoints';
+
+@mixin respondTo($breakpoint) {
+  @if $breakpoint == tablet-portrait {
+    @media (min-width: $tablet-portrait-breakpoint) {
+      @content;
+    }
+  } @else if $breakpoint == tablet-landscape {
+    @media (min-width: $tablet-landscape-breakpoint) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+}

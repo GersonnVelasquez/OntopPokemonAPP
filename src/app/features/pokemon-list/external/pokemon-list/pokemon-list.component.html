@@ -1,0 +1,26 @@
+<div class="pokemon-list">
+  <div class="pokemon-list__content-area">
+    <h1 class="pokemon-list__title">Pokemon List</h1>
+    <ng-container *ngIf="pokemonListLoading$ | async; else pokemonList">
+      <app-loading-spinner></app-loading-spinner>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="pokemonCount$ | async as pokemonCount">
+    <app-paginator
+      [currentPage]="pokemonListCurrentPage$ | async"
+      [pageSize]="pokemonListLimit$ | async"
+      [length]="pokemonCount"
+      (paginationEvent)="handlePagination($event)"
+    ></app-paginator>
+  </ng-container>
+</div>
+
+<ng-template #pokemonList>
+  <div class="pokemon-list__cards-container">
+    <app-pokemon-card
+      (pokemonSelected)="handlePokemonSelected($event)"
+      *ngFor="let pokemon of pokemonList$ | async"
+      [pokemon]="pokemon"
+    ></app-pokemon-card>
+  </div>
+</ng-template>

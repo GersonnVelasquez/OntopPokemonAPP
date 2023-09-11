@@ -1,0 +1,25 @@
+.pokemon-detail-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  &__navigation {
+    padding-left: 20px;
+    &__back-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.container-wrapper {
+  padding-top: 20px;
+}

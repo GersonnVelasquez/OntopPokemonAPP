@@ -1,0 +1,48 @@
+@import 'src/styles/mixins/responsive';
+
+.pokemon-card {
+  border-radius: 0;
+  padding: 8px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  border-style: none;
+  border-bottom: 1px solid white;
+  width: 100%;
+  cursor: pointer;
+
+  @include respondTo(tablet-portrait) {
+    border-radius: 8px;
+    padding: 16px;
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  &__image {
+    max-width: 50px;
+    flex: 0;
+
+    @include respondTo(tablet-portrait) {
+      flex: 1;
+      max-width: none;
+    }
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: bold;
+    flex: 1;
+    color: #f9f9f9;
+
+    @include respondTo(tablet-portrait) {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}

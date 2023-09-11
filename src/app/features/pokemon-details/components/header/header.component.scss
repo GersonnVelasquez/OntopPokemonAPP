@@ -1,0 +1,67 @@
+@import 'src/styles/mixins/responsive';
+
+.pokemon-main-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 10px;
+    margin: auto 0;
+  }
+
+  &__main-info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    &__name {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    &__pokedex-number {
+      margin: 0;
+      font-size: 1.5em;
+    }
+
+    &__main-type {
+      margin: 0;
+      font-size: 1.2em;
+      text-transform: capitalize;
+    }
+
+    &__types {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+
+      &__type {
+        padding: 5px 10px;
+        background-color: #fff;
+        color: #000;
+        border-radius: 20px;
+      }
+    }
+
+    @include respondTo(tablet-portrait) {
+      align-items: flex-start;
+    }
+  }
+
+  @include respondTo(tablet-portrait) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}

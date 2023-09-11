@@ -1,0 +1,23 @@
+<ng-container *ngIf="pokemonDetails$ | async as pokemonDetails">
+  <div class="container-wrapper">
+    <div class="pokemon-detail-container">
+      <div class="pokemon-detail-container__navigation">
+        <button
+          [ngStyle]="{ 'background-color': pokemonDetails.mainTypeColor }"
+          (click)="goToList()"
+          class="pokemon-detail-container__navigation__back-button"
+        >
+          Back
+        </button>
+      </div>
+      <ng-container *ngIf="(isLoading$ | async) === false; else loading">
+        <app-header [pokemon]="pokemonDetails"></app-header>
+        <app-description [pokemon]="pokemonDetails"></app-description>
+        <app-evolution-chain [pokemon]="pokemonDetails"></app-evolution-chain>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>
